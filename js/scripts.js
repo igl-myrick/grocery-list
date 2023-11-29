@@ -9,10 +9,22 @@ window.addEventListener("load", function() {
     listHeading.append("Your list:");
     document.body.append(listHeading);
 
+    let newList = [];
+
     userList.forEach(function(element) {
-      const listParagraph = document.createElement("p");
-      listParagraph.append(element.value);
-      document.body.append(listParagraph);
+      newList.push(element.value.toUpperCase());
     });
+
+    function sortList(arrayToSort) {
+      arrayToSort.sort();
+    }
+
+    sortList(newList);
+
+    // userList.forEach(function(element) {
+    //   const listParagraph = document.createElement("p");
+    //   listParagraph.append(element.value);
+    //   document.body.append(listParagraph);
+    // });
   });
 });
