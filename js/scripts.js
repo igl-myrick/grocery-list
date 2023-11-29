@@ -1,3 +1,9 @@
+// business logic
+function sortList(arrayToSort) {
+  arrayToSort.sort();
+}
+
+// ui logic
 window.addEventListener("load", function() {
   let form = document.querySelector("form");
   form.addEventListener("submit", function(e) {
@@ -10,21 +16,19 @@ window.addEventListener("load", function() {
     document.body.append(listHeading);
 
     let newList = [];
-
     userList.forEach(function(element) {
       newList.push(element.value.toUpperCase());
     });
 
-    function sortList(arrayToSort) {
-      arrayToSort.sort();
-    }
-
     sortList(newList);
 
-    // userList.forEach(function(element) {
-    //   const listParagraph = document.createElement("p");
-    //   listParagraph.append(element.value);
-    //   document.body.append(listParagraph);
-    // });
+    const ul = document.createElement("ul");
+    document.body.append(ul);
+
+    newList.forEach(function(element) {
+      const li = document.createElement("li");
+      li.append(element);
+      ul.append(li);
+    });
   });
 });
